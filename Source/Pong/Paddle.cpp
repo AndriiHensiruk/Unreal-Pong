@@ -68,7 +68,7 @@ void APaddle::Tick(float DeltaTime)
 	}
 	else {
 		if (RootComponent && RootComponent->IsAnySimulatingPhysics()) {
-			float axis_value = InputComponent->GetAxisValue(TEXT("P1_MoveUp"));
+			float axis_value = InputComponent->GetAxisValue(TEXT("P1_MoveHorizontal"));
 			Cast<UPrimitiveComponent>(RootComponent)->AddForce(FVector(0.0, -axis_value * movement_multiplier, 0.0));
 		}
 	}
@@ -86,7 +86,7 @@ void APaddle::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	if (!is_ai) {
 		Super::SetupPlayerInputComponent(PlayerInputComponent);
-		InputComponent->BindAxis(TEXT("P1_MoveUp"));
+		InputComponent->BindAxis(TEXT("P1_MoveHorizontal"));
 	}
 
 }
